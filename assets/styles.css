@@ -3,31 +3,38 @@ body{
 }
 
 
-#copy-area  {
-   width: 100%;
-   background-color: rgba(59, 59, 75, 0.699);
-   text-align: center;
-   
-}
-
 
 #copy-area   {
     padding: 10px 0px;
-}
-
-
-#contact-area{
-   background-color: rgba(59, 59, 75, 0.699);
-   text-align: center;
-    background-color: rgba(59, 59, 75, 0.699);
+    bottom: 0;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    background-color: rgba(75, 59, 74, 0.699);
+    text-align: center;
     
 }
+
+
 .container-caroseul {
    max-width: 800px;
    margin: 0 auto;
    margin-bottom: 20px;
-   margin-top: 20px;
 }
-.container{
+div.container-card .col{
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
+   
+}
+.cantainere-forum-label{
+   margin-left: 25%;
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+.table-container {
+  height: 410px;
+}
+
+.table {
+  margin: 0;
 }
