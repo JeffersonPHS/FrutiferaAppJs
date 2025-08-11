@@ -6,7 +6,7 @@
     <title>Cadápio</title>
      <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="assets/styles.css">
-     <script src="cardapio.js" defer></script>
+     <script src="/src/cardapio.js" defer></script>
 </head>
 <body>
 
@@ -44,7 +44,7 @@
 <div class="cantainere-forum-label">
 
 <div class="row">
-<div class="col"><input class="form-control" type="text" value="Buscar..." aria-label="readonly input example" readonly></div>
+<div class="col"><input class="form-control" type="text" value="Buscar..." aria-label="readonly input example"></div>
 <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#exibirmodal" >+</button></div>
 </div>
 
@@ -61,11 +61,25 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
-        <p>teste.</p>
+       
+      <div id="cantainere-forum">
+        <div class="row">
+          <div class="col"><input id="nome" class="form-control" type="text" placeholder="Nome"></div>
+       </div>
+
+
+
+       <div class="row">
+        <div class="col">
+          <input id="email" class="form-control" type="text" placeholder="Email">
+        </div>
+        </div>
+        </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Salvar</button>
+        <button id="button-modal" type="button" class="btn btn-primary">Salvar</button>
       </div>
     </div>
   </div>

@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/JeffersonPHS/Projeto-bootstrap#readme",
   "dependencies": {
-    "bootstrap": "^5.3.6"
+    "bootstrap": "^5.3.7"
   }
 }
