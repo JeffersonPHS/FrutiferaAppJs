@@ -6,7 +6,7 @@
     <title>Cadápio</title>
      <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="assets/styles.css">
-     <script src="/src/cardapio.js" defer></script>
+     <script src="/Projeto do cafe/CafeteriaSemana8/src/cardapio.js" defer></script>
 </head>
 <body>
 
@@ -44,7 +44,7 @@
 <div class="cantainere-forum-label">
 
 <div class="row">
-<div class="col"><input class="form-control" type="text" value="Buscar..." aria-label="readonly input example"></div>
+<div class="col"><input class="form-control" type="text" placeholder="Buscar..."></div>
 <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#exibirmodal" >+</button></div>
 </div>
 
@@ -61,21 +61,28 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
-       
-      <div id="cantainere-forum">
-        <div class="row">
-          <div class="col"><input id="nome" class="form-control" type="text" placeholder="Nome"></div>
-       </div>
-
-
-
-       <div class="row">
-        <div class="col">
-          <input id="email" class="form-control" type="text" placeholder="Email">
-        </div>
-        </div>
-        </div>
-
+        <form id="container-form">
+          <div class="row">
+            <div class="col">
+              <input id="quantidade" name="quantidade" class="form-control" type="text" placeholder="Quantidade">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input id="cafe" name="cafe" class="form-control" type="text" placeholder="Café">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input id="preco" name="preco" class="form-control" type="text" placeholder="Preço">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input id="descricao" name="descricao" class="form-control" type="text" placeholder="Descrição">
+            </div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -85,13 +92,13 @@
   </div>
 </div>
 
-   
 
 
+  
 
 <!-- Tapela -->
  
-<div class="table-container" >
+<div id="table-container" >
   <table class="table table-striped">
     <thead>
       <tr>
