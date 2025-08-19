@@ -38,6 +38,8 @@ div.container-card .col{
 .table {
   margin: 0;
 }
-.modal-body #cantainere-forum div.row{
-  margin: 15px;
+
+div.card-container .card {
+  margin: 20px;
 }
+

@@ -1,27 +1,75 @@
 const buttonModal = document.getElementById('button-modal');
 const form = document.getElementById('container-form');
-const tapela = document.querySelector("#table-container tbody");
+const card_adicionar = document.querySelector("#card-adicionar");
+
+
+
+
+
+// Função para carregar os dados do localStorage ao iniciar a página
+document.addEventListener('DOMContentLoaded', () => {
+  // Recupera os dados salvos no localStorage
+  const savedData = JSON.parse(localStorage.getItem('frutas')) || ["Dados vaziu"];
+
+  // Preenche o card com os dados salvos
+  savedData.forEach(item => {
+    card_adicionar.innerHTML += `
+      Seu id único: ${item.id}
+      <h6>${item.nomeespecie}</h6>
+      <h6>${item.nomecietifico}</h6>
+      <h6>${item.producao}</h6>
+      <h6>${item.dataPlantio}</h6>
+    `;
+  });
+});
+
 
 
 buttonModal.addEventListener('click', () => {
   const formData = new FormData(form);
   const formValues = Object.fromEntries(formData);
-  localStorage.setItem("formValues", JSON.stringify(formValues));
-  console.log("Dados", formValues)
-  
-  console.log(localStorage.getItem("formValues"));
+
+
 
   
-  tapela.innerHTML = `
-        <td>${formValues.quantidade}</td>
-        <td>${formValues.cafe}</td>
-        <td>${formValues.quantidade}</td>
-        <td>${formValues.preco}</td>
+  //Gerar id unico para cada listagem de fruta
+  const id = Date.now();
+
+  card_adicionar.innerHTML += `
+        Seu id único: ${id}
+        <h6>${formValues.nomeespecie}</h6>
+        <h6>${formValues.nomecietifico}</h6>
+        <h6>${formValues.producao}</h6>
+        <h6>${formValues.dataPlantio}</h6>
+    
   `;
+
+  
+  // Criar objeto com os dados do formulário
+  const fruta = {
+    id,
+    nomeespecie: formValues.nomeespecie,
+    nomecietifico: formValues.nomecietifico,
+    producao: formValues.producao,
+    dataPlantio: formValues.dataPlantio
+  };
   
   form.reset();
-});
 
+
+
+//Fechar Modal
+const modal = bootstrap.Modal.getInstance(document.getElementById('exibirmodal'));
+  modal.hide();
+
+  
+  // Vai Salvar no localStorage as infomacoes do Campos
+  const savedData = JSON.parse(localStorage.getItem('frutas')) || ["Dados vaziu"];
+  savedData.push(fruta);
+  localStorage.setItem('frutas', JSON.stringify(savedData));
+
+  
+});
 
 
 

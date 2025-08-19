@@ -6,7 +6,7 @@
     <title>Cadápio</title>
      <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="assets/styles.css">
-     <script src="/Projeto do cafe/CafeteriaSemana8/src/cardapio.js" defer></script>
+     <script src="/src/cardapio.js" defer></script>
 </head>
 <body>
 
@@ -17,7 +17,7 @@
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="/assets/logo.png" alt="Logo da Cafeteria" width="30" height="30" class="d-inline-block align-text-top me-2">
-        Cafeteria
+        Frutas Top
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
             <a class="nav-link active" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="cardapio.html">Cardápio</a>
+            <a class="nav-link" href="cardapio.html">Listagem de Frutas</a>
           </li>
         </ul>
       </div>
@@ -44,44 +44,47 @@
 <div class="cantainere-forum-label">
 
 <div class="row">
-<div class="col"><input class="form-control" type="text" placeholder="Buscar..."></div>
-<div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#exibirmodal" >+</button></div>
+<h4 class="col">Clique no botão ao lado para levitar a fruta</h4>
+<div class="col"><button type="button"  class="btn btn-primary rounded-circle" data-bs-toggle="modal"  data-bs-target="#exibirmodal" >+</button></div>
 </div>
 
 </div>
 
 
  
-
-<div class="modal fade" id="exibirmodal" tabindex="-1" aria-hidden="true">
+<div id="mmm">
+<div  class="modal fade"  id="exibirmodal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Cardápio</h5>
+        <h5 class="modal-title">Listar fruta</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
         <form id="container-form">
-          <div class="row">
-            <div class="col">
-              <input id="quantidade" name="quantidade" class="form-control" type="text" placeholder="Quantidade">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <input id="cafe" name="cafe" class="form-control" type="text" placeholder="Café">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <input id="preco" name="preco" class="form-control" type="text" placeholder="Preço">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <input id="descricao" name="descricao" class="form-control" type="text" placeholder="Descrição">
-            </div>
-          </div>
+
+
+                <!-- Nome da espécie -->
+                <div class="mb-3">
+                  <label for="nome-especie" class="form-label">Nome da espécie</label>
+                  <input type="text" class="form-control" id="nome-especie" name="nomeespecie" placeholder="Nome da espécie">
+                </div>
+                <!-- Nome científico -->
+                <div class="mb-3">
+                  <label for="nome-cietifico" class="form-label">Nome científico</label>
+                  <input type="text" class="form-control" id="nomecietifico" name="nomecietifico" placeholder="Nome científico">
+                </div>
+                <!-- Produção média por safra (KG) -->
+                <div class="mb-3">
+                  <label for="producao" class="form-label">Produção média por safra (KG)</label>
+                  <input type="number" class="form-control" id="producao" name="producao" placeholder="Produção média por safra (KG)">
+                </div>
+                <!-- Data do plantio -->
+                <div class="mb-3">
+                  <label for="dataPlantio" class="form-label">Data do plantio</label>
+                  <input type="date" class="form-control" id="dataPlantio" name="dataPlantio" required>
+                </div>
+                
         </form>
       </div>
       <div class="modal-footer">
@@ -92,62 +95,29 @@
   </div>
 </div>
 
-
-
-  
-
-<!-- Tapela -->
- 
-<div id="table-container" >
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Item</th>
-        <th scope="col">Preço</th>
-        <th scope="col">Descrição</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 </div>
 
 
 
 
+  
 
+<!-- Container do card -->
+ <div class="card-container">
 
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Frutas</h5>
+    <h6 id="card-adicionar" class="card-subtitle mb-2 text-body-secondary"></h6>
+  </div>
+</div>
 
-
+ </div>
 
 
 
 </main>
+
 
 
 <!-- rodapé do site -->
