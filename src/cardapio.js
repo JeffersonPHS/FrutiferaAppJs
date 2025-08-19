@@ -11,16 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Recupera os dados salvos no localStorage
   const savedData = JSON.parse(localStorage.getItem('frutas')) || ["Dados vaziu"];
 
-  // Preenche o card com os dados salvos
-  savedData.forEach(item => {
+ 
+  for (const item of savedData) {
     card_adicionar.innerHTML += `
+
       Seu id único: ${item.id}
       <h6>${item.nomeespecie}</h6>
       <h6>${item.nomecietifico}</h6>
       <h6>${item.producao}</h6>
       <h6>${item.dataPlantio}</h6>
+
     `;
-  });
+  }
 });
 
 
@@ -36,11 +38,13 @@ buttonModal.addEventListener('click', () => {
   const id = Date.now();
 
   card_adicionar.innerHTML += `
+
         Seu id único: ${id}
         <h6>${formValues.nomeespecie}</h6>
         <h6>${formValues.nomecietifico}</h6>
         <h6>${formValues.producao}</h6>
         <h6>${formValues.dataPlantio}</h6>
+        
     
   `;
 
