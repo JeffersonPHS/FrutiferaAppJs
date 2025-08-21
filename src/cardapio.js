@@ -6,35 +6,46 @@ const card_adicionar = document.querySelector("#card-adicionar");
 
 
 
-// Função para carregar os dados do localStorage ao iniciar a página
+
+// Função para carregar os dados do localStorage ao iniciar a pagina
 document.addEventListener('DOMContentLoaded', () => {
   // Recupera os dados salvos no localStorage
-  const savedData = JSON.parse(localStorage.getItem('frutas')) || ["Dados vaziu"];
+  const savedData = JSON.parse(localStorage.getItem('frutas')) || [];
 
  
   for (const item of savedData) {
+    if (item && item.id) { 
     card_adicionar.innerHTML += `
 
       Seu id único: ${item.id}
       <h6>${item.nomeespecie}</h6>
       <h6>${item.nomecietifico}</h6>
       <h6>${item.producao}</h6>
-      <h6>${item.dataPlantio}</h6>
+      <h6>${ formatarDataBrasileira(item.dataPlantio)}</h6>
 
     `;
-  }
+  }}
 });
 
+
+// Função para converter data do formato YYYY-MM-DD para DD/MM/YYYY
+function formatarDataBrasileira(data) {
+  const [ano, mes, dia] = data.split('-'); // Divide a data em ano, mês e dia
+  return `${dia}/${mes}/${ano}`; // Retorna no formato DD/MM/YYYY
+
+}
 
 
 buttonModal.addEventListener('click', () => {
   const formData = new FormData(form);
   const formValues = Object.fromEntries(formData);
 
-
+  // Formatar na funcao da acao do click  antes de exibir a data
+  const dataFormatada = formatarDataBrasileira(formValues.dataPlantio);
 
   
-  //Gerar id unico para cada listagem de fruta
+
+  
   const id = Date.now();
 
   card_adicionar.innerHTML += `
@@ -43,7 +54,7 @@ buttonModal.addEventListener('click', () => {
         <h6>${formValues.nomeespecie}</h6>
         <h6>${formValues.nomecietifico}</h6>
         <h6>${formValues.producao}</h6>
-        <h6>${formValues.dataPlantio}</h6>
+        <h6>${dataFormatada}</h6>
         
     
   `;
@@ -68,7 +79,7 @@ const modal = bootstrap.Modal.getInstance(document.getElementById('exibirmodal')
 
   
   // Vai Salvar no localStorage as infomacoes do Campos
-  const savedData = JSON.parse(localStorage.getItem('frutas')) || ["Dados vaziu"];
+  const savedData = JSON.parse(localStorage.getItem('frutas')) || [""];
   savedData.push(fruta);
   localStorage.setItem('frutas', JSON.stringify(savedData));
 
@@ -79,6 +90,7 @@ const modal = bootstrap.Modal.getInstance(document.getElementById('exibirmodal')
 
 
 
+  //Gerar id unico para cada listagem de fruta
 
 
 
